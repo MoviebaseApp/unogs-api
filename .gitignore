@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+.idea
+.DS_Store
+/build
+/unogs-api/build
+/buildSrc/build
+/buildSrc/.gradle
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+xcuserdata/
+project.xcworkspace/
+UserInterfaceState.xcuserstate
+Config.xcconfig
