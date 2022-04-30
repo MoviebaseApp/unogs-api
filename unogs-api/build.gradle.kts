@@ -6,7 +6,6 @@ plugins {
     id("org.jetbrains.dokka")
     id("maven-publish")
     id("signing")
-//    id(Plugins.swiftpackage) version Versions.swiftpackage
 }
 
 group = "app.moviebase"
@@ -18,8 +17,6 @@ kotlin {
         browser()
         nodejs()
     }
-    iosArm64()
-    iosX64()
 
     sourceSets {
         val commonMain by getting {
@@ -36,16 +33,8 @@ kotlin {
                 implementation(Libs.Data.ktorAuth)
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val jvmMain by getting {
-            dependencies {
-            }
-        }
+        val commonTest by getting
+        val jvmMain by getting
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-junit5"))
@@ -57,43 +46,7 @@ kotlin {
                 implementation(Libs.Testing.ktorClientMock)
             }
         }
-        val jsMain by getting {
-            dependencies {
-
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-        val iosMain by creating {
-            dependsOn(commonMain)
-            kotlin.srcDir("src/iosMain/kotlin")
-
-            dependencies {
-                implementation(Libs.Data.ktorIos)
-            }
-        }
-        val iosTest by creating {
-            dependsOn(commonTest)
-            kotlin.srcDir("src/iosTest/kotlin")
-            dependencies {
-                implementation(Libs.Data.ktorIos)
-            }
-        }
-        val iosArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosX64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosArm64Test by getting {
-            dependsOn(iosTest)
-        }
-        val iosX64Test by getting {
-            dependsOn(iosTest)
-        }
+        val jsMain by getting
     }
 }
 
@@ -118,9 +71,9 @@ afterEvaluate {
         publications.withType<MavenPublication>().configureEach {
             artifact(javadocJar.get())
             pom {
-                name.set("Kotlin Multiplatform Trakt API")
-                description.set("A Kotlin Multiplatform library to access the Trakt API.")
-                url.set("https://github.com/MoviebaseApp/trakt-api")
+                name.set("Kotlin Multiplatform Unogs API")
+                description.set("A Kotlin Multiplatform library to access the Unogs API.")
+                url.set("https://github.com/MoviebaseApp/unogs-api")
                 inceptionYear.set("2021")
 
                 developers {
@@ -138,12 +91,12 @@ afterEvaluate {
                 }
                 issueManagement {
                     system.set("GitHub Issues")
-                    url.set("https://github.com/MoviebaseApp/trakt-api/issues")
+                    url.set("https://github.com/MoviebaseApp/unogs-api/issues")
                 }
                 scm {
-                    connection.set("scm:git:https://github.com/MoviebaseApp/trakt-api.git")
-                    developerConnection.set("scm:git:git@github.com:MoviebaseApp/trakt-api.git")
-                    url.set("https://github.com/MoviebaseApp/trakt-api")
+                    connection.set("scm:git:https://github.com/MoviebaseApp/unogs-api.git")
+                    developerConnection.set("scm:git:git@github.com:MoviebaseApp/unogs-api.git")
+                    url.set("https://github.com/MoviebaseApp/unogs-api")
                 }
             }
         }

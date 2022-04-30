@@ -2,14 +2,13 @@ object Versions {
 
     val versionMajor = 1
     val versionMinor = 0
-    val versionPatch = 0
+    val versionPatch = 1
 
     val versionName = "$versionMajor.$versionMinor.$versionPatch"
 
     // Plugins
     val dokka = "1.4.30"
     val nexus = "1.0.0"
-    val swiftpackage = "2.0.3"
 
     // Kotlin
     val kotlin = "1.5.30"
@@ -31,7 +30,6 @@ object Versions {
 
 object Plugins {
     val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
-    val swiftpackage = "com.chromaticnoise.multiplatform-swiftpackage"
 }
 
 object Libs {
@@ -49,7 +47,6 @@ object Libs {
         val ktorJson = "io.ktor:ktor-client-json:${Versions.ktor}"
         val ktorLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
         val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
-        val ktorIos = "io.ktor:ktor-client-ios:${Versions.ktor}"
         val ktorAuth = "io.ktor:ktor-client-auth:${Versions.ktor}"
     }
 
