@@ -5,6 +5,7 @@ import app.moviebase.unogs.model.UnogsDetails
 import app.moviebase.unogs.model.UnogsReleaseExpireItems
 import app.moviebase.unogs.remote.endPoint
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.request.*
 
 class UnogsApi(private val client: HttpClient) {
@@ -17,7 +18,7 @@ class UnogsApi(private val client: HttpClient) {
         parameter("p", page)
         parameter("t", "ns")
         parameter("st", "adv")
-    }
+    }.body()
 
     suspend fun getSeasonReleaseDates(countryCode: String, days: Int, page: Int): UnogsReleaseExpireItems = client.get {
         val unogsCountry = countryCode.toUnogsCountry()
@@ -27,7 +28,7 @@ class UnogsApi(private val client: HttpClient) {
         parameter("p", page)
         parameter("t", "ns")
         parameter("st", "adv")
-    }
+    }.body()
 
     suspend fun getExpiring(countryCode: String, page: Int): UnogsReleaseExpireItems = client.get {
         val unogsCountry = countryCode.toUnogsCountry()
@@ -37,7 +38,7 @@ class UnogsApi(private val client: HttpClient) {
         parameter("p", page)
         parameter("t", "ns")
         parameter("st", "adv")
-    }
+    }.body()
 
     /**
      * Deleted items on Netflix.
@@ -50,13 +51,13 @@ class UnogsApi(private val client: HttpClient) {
         parameter("t", "deleted")
         parameter("cl", unogsCountry)
         parameter("st", days.toString())
-    }
+    }.body()
 
     suspend fun getDetails(imdbOrNetflixId: String): UnogsDetails = client.get {
         endPoint("aaapi.cgi")
         parameter("q", imdbOrNetflixId)
         parameter("t", "getimdb")
-    }
+    }.body()
 
     private fun String.toUnogsCountry(): String = if (this == "GB") "UK" else this
 }

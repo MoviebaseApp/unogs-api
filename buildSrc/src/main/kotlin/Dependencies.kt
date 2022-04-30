@@ -1,5 +1,4 @@
 object Versions {
-
     val versionMajor = 1
     val versionMinor = 0
     val versionPatch = 1
@@ -9,19 +8,20 @@ object Versions {
     // Plugins
     val dokka = "1.4.30"
     val nexus = "1.0.0"
+    val benManesVersions = "0.42.0"
 
     // Kotlin
-    val kotlin = "1.5.30"
-    val coroutines = "1.5.2"
-    val kotlinxDatetime = "0.2.1"
-    val serialization = "1.3.0"
+    val kotlin = "1.6.10"
+    val coroutines = "1.6.0"
+    val kotlinxDatetime = "0.3.1"
+    val serialization = "1.3.2"
     val kotlinIo = "0.1.16"
 
     // Data
-    val ktor = "1.6.3"
+    val ktor = "2.0.0"
 
     // Testing
-    val junitJupiter = "5.8.0-RC1"
+    val junitJupiter = "5.8.0"
     val truth = "1.1.3"
     val junit = "4.13.2"
     val mockito = "3.12.4"
@@ -46,7 +46,8 @@ object Libs {
         val ktorCore = "io.ktor:ktor-client-core:${Versions.ktor}"
         val ktorJson = "io.ktor:ktor-client-json:${Versions.ktor}"
         val ktorLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
-        val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+        val ktorSerialization = "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktor}"
+        val ktorContentNegotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktor}"
         val ktorAuth = "io.ktor:ktor-client-auth:${Versions.ktor}"
     }
 
